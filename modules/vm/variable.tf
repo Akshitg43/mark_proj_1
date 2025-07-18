@@ -1,12 +1,12 @@
 variable "vm_name" {
-  type = "string"
+  type = string
 }
 variable "location" {
-  type = "string"
+  type = string
 }
 
 variable "resource_group_name" {
-  type = "string"
+  type = string
 }
 variable "subnet_id" {
   type = string
