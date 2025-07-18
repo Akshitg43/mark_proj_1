@@ -17,6 +17,7 @@ resource "azurerm_linux_virtual_machine" "vm" {
   location = var.location
   resource_group_name = var.resource_group_name
   size = var.vm_size
+  disable_password_authentication = false
   admin_username = var.admin_username
   admin_password = var.admin_password
   network_interface_ids = [ azurerm_network_interface.int.id ]
