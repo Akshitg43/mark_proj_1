@@ -25,7 +25,7 @@ pipeline {
                     export ARM_SUBSCRIPTION_ID=${ARM_SUBSCRIPTION_ID}
                     export ARM_TENANT_ID=${ARM_TENANT_ID}
 
-                    terraform init -input=false -reconfigure \
+                    terraform init -reconfigure \
                         -backend-config="resource_group_name=${RESOURCE_GROUP}" \
                         -backend-config="storage_account_name=${STORAGE_ACCOUNT}" \
                         -backend-config="container_name=${CONTAINER_NAME}" \
