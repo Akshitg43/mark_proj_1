@@ -32,9 +32,7 @@ variable "admin_username" {
 variable "admin_password" {
   type = string
 }
-variable "disk_size_gb" {
-  type = number
-}
+
 variable "network_interface_ids" {
   type = list(string)
 }
