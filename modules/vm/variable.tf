@@ -1,6 +1,7 @@
 variable "vm_name" {
   type = string
 }
+
 variable "location" {
   type = string
 }
@@ -8,21 +9,24 @@ variable "location" {
 variable "resource_group_name" {
   type = string
 }
-variable "subnet_id" {
-  type = string
-}
+
 variable "vm_size" {
   type = string
 }
+
 variable "admin_username" {
   type = string
 }
+
 variable "admin_password" {
   type = string
 }
 
-variable "os_disk_size_gb" {
-  type = number
+variable "network_interface_ids" {
+  type = list(string)
+}
+variable "subnet_id" {
+  type = string
 }
 variable "os_disk" {
   type = object({
@@ -32,6 +36,7 @@ variable "os_disk" {
     disk_size_gb         = number
   })
 }
+
 variable "source_image_reference" {
   type = object({
     publisher = string
@@ -39,7 +44,4 @@ variable "source_image_reference" {
     sku       = string
     version   = string
   })
-}
-variable "network_interface_ids" {
-  type = list(string)
-}
+  }
