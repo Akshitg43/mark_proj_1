@@ -40,3 +40,6 @@ variable "source_image_reference" {
     version   = string
   })
 }
+variable "network_interface_ids" {
+  type = list(string)
+}

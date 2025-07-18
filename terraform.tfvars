@@ -23,3 +23,6 @@ source_image_reference = {
   sku       = "22_04-lts-gen2"
   version   = "latest"
 }
+network_interface_ids = [
+  "/subscriptions/7b5bc41a-d156-450e-bf00-1cfe69176584/resourceGroups/jenkins/providers/Microsoft.Network/networkInterfaces/akshit-vm-nic"
+]
