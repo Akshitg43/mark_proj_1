@@ -52,3 +52,4 @@ variable "source_image_reference" {
     version   = string
   })
 }
+
