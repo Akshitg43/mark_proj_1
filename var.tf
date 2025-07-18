@@ -35,3 +35,22 @@ variable "admin_password" {
 variable "disk_size_gb" {
   type = number
 }
+variable "network_interface_ids" {
+  type = list(string)
+}
+variable "os_disk" {
+  type = object({
+    name                 = string
+    caching              = string
+    storage_account_type = string
+    disk_size_gb         = number
+  })
+}
+variable "source_image_reference" {
+  type = object({
+    publisher = string
+    offer     = string
+    sku       = string
+    version   = string
+  })
+}
