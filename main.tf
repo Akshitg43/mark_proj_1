@@ -29,9 +29,7 @@ module "vm" {
   admin_username      = var.admin_username
   admin_password      = var.admin_password
   subnet_id            = module.network.subnet_id
-  network_interface_ids = [
-    azurerm_network_interface.int.id
-  ]
+  
 
   os_disk = {
     name                 = "${var.vm_name}-osdisk"
