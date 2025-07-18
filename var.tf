@@ -52,4 +52,6 @@ variable "source_image_reference" {
     version   = string
   })
 }
-
+variable "os_disk_size_gb" {
+  type    = number
+}
