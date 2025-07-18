@@ -24,3 +24,19 @@ variable "admin_password" {
 variable "os_disk_size_gb" {
   type = number
 }
+variable "os_disk" {
+  type = object({
+    name                 = string
+    caching              = string
+    storage_account_type = string
+    disk_size_gb         = number
+  })
+}
+variable "source_image_reference" {
+  type = object({
+    publisher = string
+    offer     = string
+    sku       = string
+    version   = string
+  })
+}

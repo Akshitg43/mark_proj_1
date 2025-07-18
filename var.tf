@@ -20,3 +20,18 @@ variable "subnet_address_prefixes" {
 variable "vnet_name" {
   type = string
 }
+variable "vm_name" {
+  type = string
+}
+variable "vm_size" {
+  type = string
+}
+variable "admin_username" {
+  type = string
+}
+variable "admin_password" {
+  type = string
+}
+variable "disk_size_gb" {
+  type = string
+}
