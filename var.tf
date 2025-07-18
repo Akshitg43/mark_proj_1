@@ -33,5 +33,5 @@ variable "admin_password" {
   type = string
 }
 variable "disk_size_gb" {
-  type = string
+  type = number
 }
