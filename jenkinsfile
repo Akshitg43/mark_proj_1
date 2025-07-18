@@ -6,10 +6,7 @@ pipeline {
         ARM_SUBSCRIPTION_ID = credentials('ARM_SUBSCRIPTION_ID')
         ARM_TENANT_ID       = credentials('ARM_TENANT_ID')
 
-        RESOURCE_GROUP = "jenkins"
-        STORAGE_ACCOUNT = "terraform999"
-        CONTAINER_NAME = "terraform"
-        STATE_KEY = "terraform.tfstate"
+       
     }
     stages {
         stage('Checkout') {
@@ -20,26 +17,17 @@ pipeline {
         stage('Terraform Init') {
             steps {
                 sh '''
-                    export ARM_CLIENT_ID=${ARM_CLIENT_ID}
-                    export ARM_CLIENT_SECRET=${ARM_CLIENT_SECRET}
-                    export ARM_SUBSCRIPTION_ID=${ARM_SUBSCRIPTION_ID}
-                    export ARM_TENANT_ID=${ARM_TENANT_ID}
+                  
 
-                    terraform init -reconfigure \
-                        -backend-config="resource_group_name=${RESOURCE_GROUP}" \
-                        -backend-config="storage_account_name=${STORAGE_ACCOUNT}" \
-                        -backend-config="container_name=${CONTAINER_NAME}" \
-                        -backend-config="key=${STATE_KEY}"
+                    terraform init -reconfigure 
+                      
                 '''
             }
         }
         stage('Terraform Plan') {
             steps {
                 sh '''
-                    export ARM_CLIENT_ID=${ARM_CLIENT_ID}
-                    export ARM_CLIENT_SECRET=${ARM_CLIENT_SECRET}
-                    export ARM_SUBSCRIPTION_ID=${ARM_SUBSCRIPTION_ID}
-                    export ARM_TENANT_ID=${ARM_TENANT_ID}
+                    
 
                     terraform plan -input=false
                 '''
@@ -48,10 +36,7 @@ pipeline {
         stage('Terraform Apply') {
             steps {
                 sh '''
-                    export ARM_CLIENT_ID=${ARM_CLIENT_ID}
-                    export ARM_CLIENT_SECRET=${ARM_CLIENT_SECRET}
-                    export ARM_SUBSCRIPTION_ID=${ARM_SUBSCRIPTION_ID}
-                    export ARM_TENANT_ID=${ARM_TENANT_ID}
+                
 
                     terraform apply -auto-approve
                 '''

@@ -1,5 +1,5 @@
-terraform {
+/*terraform {
   backend "azurerm" {
     
   }
-}
+}*/
