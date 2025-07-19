@@ -33,15 +33,15 @@ module "vm" {
 
   os_disk = {
     name                 = "${var.vm_name}-osdisk"
-    caching              = "ReadWrite"
-    storage_account_type = "Standard_LRS"
+    caching              = var.os_disk.caching
+    storage_account_type = var.os_disk.storage_account_type
     disk_size_gb         = var.os_disk_size_gb
   }
 
   source_image_reference = {
-    publisher = "Canonical"
-    offer     = "0001-com-ubuntu-server-jammy"
-    sku       = "22_04-lts-gen2"
-    version   = "latest"
+    publisher = var.source_image_reference.publisher
+    offer     = ar.source_image_reference.offer
+    sku       = ar.source_image_reference.sku
+    version   = ar.source_image_reference.version
   }
 }
