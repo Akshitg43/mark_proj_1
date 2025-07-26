@@ -40,8 +40,8 @@ module "vm" {
 
   source_image_reference = {
     publisher = var.source_image_reference.publisher
-    offer     = ar.source_image_reference.offer
-    sku       = ar.source_image_reference.sku
-    version   = ar.source_image_reference.version
+    offer     = var.source_image_reference.offer
+    sku       = var.source_image_reference.sku
+    version   = var.source_image_reference.version
   }
 }
