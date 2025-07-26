@@ -20,7 +20,7 @@ pipeline {
                 sh '''
                   
 
-                    terraform init -reconfigure 
+                    terraform init -force-copy
                       
                 '''
             }
