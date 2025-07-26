@@ -55,9 +55,3 @@ variable "source_image_reference" {
 variable "os_disk_size_gb" {
   type    = number
 }
-variable "storage_account_name" {
-  type = string
-}
-variable "container_name" {
-  type = string
-}
