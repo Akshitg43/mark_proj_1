@@ -22,3 +22,6 @@ variable "purge_protection_enabled" {
 variable "soft_delete_retention_days" {
   type = number
 }
+variable "tenant_id" {
+  
+}

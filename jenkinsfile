@@ -30,7 +30,7 @@ pipeline {
                 sh '''
                     
 
-                    terraform plan -input=false
+                    terraform plan -input=false -var="tenant_id=${ARM_TENANT_ID}"
                 '''
             }
         }
@@ -39,7 +39,7 @@ pipeline {
                 sh '''
                 
 
-                    terraform apply -auto-approve
+                    terraform apply -auto-approve -var="tenant_id=${ARM_TENANT_ID}"
                 '''
             }
         }
