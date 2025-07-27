@@ -31,9 +31,10 @@ pipeline {
        stage('Terraform Import') {
             steps {
                 sh """
+                echo "Importing Key Vault Access Policy..."
                 terraform import -input=false \
                 azurerm_key_vault_access_policy.terraform_sp \
-                "/subscriptions/${env.ARM_SUBSCRIPTION_ID}/resourceGroups/vm/providers/Microsoft.KeyVault/vaults/keyvault999AG/objectId/${env.ARM_OBJECT_ID}\" || true
+                \"/subscriptions/${env.ARM_SUBSCRIPTION_ID}/resourceGroups/vm/providers/Microsoft.KeyVault/vaults/keyvault999AG/objectId/${env.ARM_OBJECT_ID}\" || true
         """
             }
         }
