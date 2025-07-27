@@ -48,13 +48,14 @@ pipeline {
                 sh '''
                 
 
-                    terraform apply -auto-approve 
+                    terraform apply -auto-approve \
                         -var="tenant_id=$ARM_TENANT_ID" \
                         -var="admin_password=$VM_PASSWORD" \
                         -var="admin_username=$VM_USERNAME" \
                         -var="vm_password=$VM_PASSWORD" \
                         -var="secret_value=$VM_PASSWORD" \
                         -var="key_vault_id=$KEY_VAULT_ID"
+                        -var="secret_name=vmPassword"
 
                     
                 '''
