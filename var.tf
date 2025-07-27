@@ -74,9 +74,7 @@ variable "soft_delete_retention_days" {
 variable "tenant_id" {
   
 }
-variable "secret_name" {
-  type = string
-}
+
 variable "secret_value" {
   type = string
 }

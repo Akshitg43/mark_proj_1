@@ -29,4 +29,3 @@ key_vault_name = "keyvault999AG"
 purge_protection_enabled = false
 soft_delete_retention_days = 7
 enabled_for_disk_encryption = true
-secret_name = "VM_PASSWORD"
