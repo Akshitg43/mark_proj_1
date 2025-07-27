@@ -76,9 +76,9 @@ resource "azurerm_key_vault_access_policy" "terraform_sp" {
   tenant_id = var.tenant_id
   object_id = var.object_id 
   secret_permissions = [
-    "get",
-    "set",
-    "list"
+    "Get",
+    "Set",
+    "List"
   ]
   
   }
