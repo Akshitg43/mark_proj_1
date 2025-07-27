@@ -6,8 +6,8 @@ pipeline {
         ARM_SUBSCRIPTION_ID = credentials('ARM_SUBSCRIPTION_ID')
         ARM_TENANT_ID       = credentials('ARM_TENANT_ID')
         container_key       = credentials('container_key')
-        vm_password         = credentials('VM_PASSWORD')
-        vm_username         = credentials('VM_USERNAME')
+        VM_PASSWORD         = credentials('VM_PASSWORD')
+        VM_USERNAME         = credentials('VM_USERNAME')
 
        
     }
