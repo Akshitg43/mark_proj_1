@@ -27,7 +27,7 @@ network_interface_ids = [
 ]
 os_disk_size_gb = 128
 sku_name = "standard"
-key_vault_name = "kv"
+key_vault_name = "keyvault999"
 purge_protection_enabled = false
 soft_delete_retention_days = 7
 enabled_for_disk_encryption = true
