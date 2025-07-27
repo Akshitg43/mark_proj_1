@@ -14,6 +14,7 @@ module "resource_group" {
   location  = var.location
 }
 
+
 module "network" {
   source = "./modules/network"
   vnet_name = var.vnet_name
@@ -89,7 +90,7 @@ resource "azurerm_key_vault_access_policy" "terraform_sp" {
 module "pip" {
   source = "./modules/public_ip"
   public_ip_name = var.public_ip_name
-  resource_group_name = var.resource_group_name
+  resource_group_name = module.resource_group.rg.name
   location = var.location
   allocation_method = var.allocation_method
   sku = var.sku
