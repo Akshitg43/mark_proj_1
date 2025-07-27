@@ -23,7 +23,9 @@ pipeline {
                 sh '''
                   
 
-                    terraform init 
+                    terraform init
+                    terraform import module.store_vm_secret.azurerm_key_vault_secret.secret \
+                    https://keyvault999ag.vault.azure.net/secrets/vmpassword/5a35206b90944557a086a44dc706b765
                       
                 '''
             }
