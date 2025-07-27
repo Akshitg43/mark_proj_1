@@ -72,7 +72,7 @@ module "store_vm_secret" {
   secret_name = "vmpassword"
   secret_value = var.secret_value
   key_vault_id = module.key_vault.key_vault_id
-  depends_on = [ azurerm_key_vault_access_policy.terraform_sp ]
+  depends_on = [module.key_vault]
 }
 
 /*resource "azurerm_key_vault_access_policy" "terraform_sp" {
