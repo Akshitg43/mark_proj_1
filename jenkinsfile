@@ -7,6 +7,7 @@ pipeline {
         ARM_TENANT_ID       = credentials('ARM_TENANT_ID')
         container_key       = credentials('container_key')
         vm_password         = credentials('VM_PASSWORD')
+        vm_username         = credentials('VM_USERNAME')
 
        
     }
@@ -31,7 +32,7 @@ pipeline {
                 sh '''
                     
 
-                    terraform plan -input=false  -var="tenant_id=${ARM_TENANT_ID}" -var="vm_password=${VM_PASSWORD}"
+                    terraform plan -input=false  -var="tenant_id=${ARM_TENANT_ID}" -var="vm_password=${VM_PASSWORD}" -var="vm_username=${VM_USERNAME}"
 
                 '''
             }
@@ -41,7 +42,7 @@ pipeline {
                 sh '''
                 
 
-                    terraform apply -auto-approve -var="tenant_id=${ARM_TENANT_ID}" -var="vm_password=${VM_PASSWORD}"
+                    terraform apply -auto-approve -var="tenant_id=${ARM_TENANT_ID}" -var="vm_password=${VM_PASSWORD}" -var="vm_username=${VM_USERNAME}"
                     
                 '''
             }
