@@ -40,7 +40,7 @@ pipeline {
                         -var="vm_password=$VM_PASSWORD" \
                         -var="secret_value=$VM_PASSWORD" \
                         -var="key_vault_id=$KEY_VAULT_ID" \
-                        -var="object_id=ARM_OBJECT_ID"
+                        -var="object_id=$ARM_OBJECT_ID"
 
                 '''
             }
@@ -58,7 +58,7 @@ pipeline {
                         -var="secret_value=$VM_PASSWORD" \
                         -var="key_vault_id=$KEY_VAULT_ID"\
                         -var="secret_name=vmPassword"\
-                        -var="object_id=ARM_OBJECT_ID"
+                        -var="object_id=$ARM_OBJECT_ID"
 
                     
                 '''
