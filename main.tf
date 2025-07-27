@@ -72,7 +72,7 @@ module "store_vm_secret" {
 }
 
 resource "azurerm_key_vault_access_policy" "terraform_sp" {
-  key_vault_id = azurerm_key_vault.kv.id
+  key_vault_id = module.key_vault.key_vault_id
   tenant_id = var.tenant_id
   object_id = var.object_id 
   secret_permissions = [
