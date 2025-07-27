@@ -34,6 +34,7 @@ module "vm" {
   admin_username      = var.admin_username
   admin_password      = var.admin_password
   subnet_id            = module.network.subnet_id
+  public_ip_id        = module.public_ip.public_ip_id
   
 
   os_disk = {
@@ -49,6 +50,7 @@ module "vm" {
     sku       = var.source_image_reference.sku
     version   = var.source_image_reference.version
   }
+  depends_on = [ module.pip ]
 }
 
 module "key_vault" {
@@ -83,3 +85,12 @@ resource "azurerm_key_vault_access_policy" "terraform_sp" {
   ]
   
   }
+
+module "pip" {
+  source = "./modules/public_ip"
+  public_ip_name = var.public_ip_name
+  resource_group_name = var.resource_group_name
+  location = var.location
+  allocation_method = var.allocation_method
+  sku = var.sku
+}

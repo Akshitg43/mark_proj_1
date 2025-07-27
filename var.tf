@@ -90,3 +90,12 @@ variable "vm_password" {
 variable "object_id" {
   type = string
 }
+variable "public_ip_name" {
+  type = string
+}
+variable "allocation_method" {
+  
+}
+variable "sku" {
+  
+}

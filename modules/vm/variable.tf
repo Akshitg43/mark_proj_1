@@ -43,3 +43,7 @@ variable "source_image_reference" {
     version   = string
   })
   }
+
+  variable "public_ip_id" {
+    
+  }
