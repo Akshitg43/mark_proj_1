@@ -65,7 +65,7 @@ module "key_vault" {
 
 module "store_vm_secret" {
   source = "./modules/key_vault_secret"
-  name = var.secret_name
-  value = var.secret_value
+  secret_name = "vmpassword"
+  secret_value = var.secret_value
   key_vault_id = module.key_vault.key_vault_id
 }
