@@ -55,3 +55,9 @@ variable "source_image_reference" {
 variable "os_disk_size_gb" {
   type    = number
 }
+variable "key_vault_name" {
+  type = string
+}
+variable "sku_name" {
+  type = string
+}
