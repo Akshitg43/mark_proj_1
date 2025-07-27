@@ -58,7 +58,7 @@ module "key_vault" {
   source = "./modules/key_vault"
   name = var.key_vault_name
   location = var.location
-  resource_group_name = module.resource_group.location
+  resource_group_name = module.resource_group.name
   enabled_for_disk_encryption = var.enabled_for_disk_encryption
   tenant_id = var.tenant_id
   soft_delete_retention_days = var.soft_delete_retention_days
