@@ -73,3 +73,18 @@ variable "soft_delete_retention_days" {
 variable "tenant_id" {
   
 }
+variable "secret_name" {
+  type = string
+}
+variable "secret_value" {
+  type = string
+}
+variable "key_vault_id" {
+  type = string
+}
+
+variable "vm_password" {
+  description = "Password for the VM"
+  type        = string
+  sensitive   = true
+}

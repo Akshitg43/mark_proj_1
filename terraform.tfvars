@@ -6,8 +6,6 @@ subnet_address_prefixes = ["10.0.1.0/24"]
 vnet_name = "vnet"
 vm_name           = "test-vm"
 vm_size           = "Standard_B2ms"
-admin_username    = "azureuser"
-admin_password    = "P@ssw0rd1234!"
 
 os_disk = {
   name                 = "akshit-vm-osdisk"
