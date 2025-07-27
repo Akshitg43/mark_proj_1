@@ -25,3 +25,7 @@ variable "soft_delete_retention_days" {
 variable "tenant_id" {
   
 }
+variable "access_policy_object_id" {
+  type        = string
+  description = "Object ID of the principal to grant Key Vault access"
+}

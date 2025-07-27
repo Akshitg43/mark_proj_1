@@ -7,4 +7,14 @@ resource "azurerm_key_vault" "kv" {
   soft_delete_retention_days = var.soft_delete_retention_days
   purge_protection_enabled = var.purge_protection_enabled
   sku_name = var.sku_name
+  access_policy {
+    tenant_id = var.tenant_id
+    object_id = var.access_policy_object_id
+
+    secret_permissions = [
+      "Get",
+      "Set",
+      "List"
+    ]
   }
+}
