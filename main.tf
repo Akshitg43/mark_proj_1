@@ -90,7 +90,7 @@ resource "azurerm_key_vault_access_policy" "terraform_sp" {
 module "pip" {
   source = "./modules/public_ip"
   public_ip_name = var.public_ip_name
-  resource_group_name = module.resource_group.rg.name
+  resource_group_name = module.resource_group.name
   location = var.location
   allocation_method = var.allocation_method
   sku = var.sku
