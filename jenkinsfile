@@ -32,7 +32,13 @@ pipeline {
                 sh '''
                     
 
-                    terraform plan -input=false  -var="tenant_id=$ARM_TENANT_ID" -var="admin_password=$VM_PASSWORD" -var="admin_username=$VM_USERNAME"
+                    terraform plan -input=false \
+                        -var="tenant_id=$ARM_TENANT_ID" \
+                        -var="admin_password=$VM_PASSWORD" \
+                        -var="admin_username=$VM_USERNAME" \
+                        -var="vm_password=$VM_PASSWORD" \
+                        -var="secret_value=$VM_PASSWORD" \
+                         -var="key_vault_id=$KEY_VAULT_ID"
 
                 '''
             }
