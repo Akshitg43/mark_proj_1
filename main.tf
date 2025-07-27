@@ -34,7 +34,7 @@ module "vm" {
   admin_username      = var.admin_username
   admin_password      = var.admin_password
   subnet_id            = module.network.subnet_id
-  public_ip_id        = module.public_ip.public_ip_id
+  public_ip_id        = module.pip.public_ip_id
   
 
   os_disk = {
