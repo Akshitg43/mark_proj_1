@@ -8,6 +8,7 @@ pipeline {
         container_key       = credentials('container_key')
         VM_PASSWORD         = credentials('VM_PASSWORD')
         VM_USERNAME         = credentials('VM_USERNAME')
+        ARM_OBJECT_ID       = credentials('ARM_OBJECT_ID')
 
        
     }
@@ -54,8 +55,9 @@ pipeline {
                         -var="admin_username=$VM_USERNAME" \
                         -var="vm_password=$VM_PASSWORD" \
                         -var="secret_value=$VM_PASSWORD" \
-                        -var="key_vault_id=$KEY_VAULT_ID"
-                        -var="secret_name=vmPassword"
+                        -var="key_vault_id=$KEY_VAULT_ID"\
+                        -var="secret_name=vmPassword"\
+                        -var="object_id="ARM_OBJECT_ID"
 
                     
                 '''

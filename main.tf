@@ -61,6 +61,7 @@ module "key_vault" {
   soft_delete_retention_days = var.soft_delete_retention_days
   purge_protection_enabled = var.purge_protection_enabled
   sku_name = var.sku_name
+
 }
 
 module "store_vm_secret" {
@@ -69,3 +70,15 @@ module "store_vm_secret" {
   secret_value = var.secret_value
   key_vault_id = module.key_vault.key_vault_id
 }
+
+resource "azurerm_key_vault_access_policy" "terraform_sp" {
+  key_vault_id = azurerm_key_vault.kv.id
+  tenant_id = var.tenant_id
+  object_id = var.object_id 
+  secret_permissions = [
+    "get",
+    "set",
+    "list"
+  ]
+  
+  }
