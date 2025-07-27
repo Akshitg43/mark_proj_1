@@ -58,13 +58,14 @@ module "key_vault" {
   source = "./modules/key_vault"
   name = var.key_vault_name
   location = var.location
-  resource_group_name = var.resource_group_name
+  resource_group_name = module.resource_group.location
   enabled_for_disk_encryption = var.enabled_for_disk_encryption
   tenant_id = var.tenant_id
   soft_delete_retention_days = var.soft_delete_retention_days
   purge_protection_enabled = var.purge_protection_enabled
   sku_name = var.sku_name
   access_policy_object_id    = var.object_id
+  depends_on = [ module.resource_group ]
 }
 
 module "store_vm_secret" {
