@@ -28,14 +28,13 @@ pipeline {
                 '''
             }
         }
-        stage('Terraform Import'){
-            steps{
-                sh '''
+       stage('Terraform Import') {
+            steps {
+                sh """
                 terraform import -input=false \
                 azurerm_key_vault_access_policy.terraform_sp \
-                "/subscriptions/${ARM_SUBSCRIPTION_ID}/resourceGroups/vm/providers/Microsoft.KeyVault/vaults/keyvault999AG/objectId/${ARM_OBJECT_ID}" || true
-
-                '''
+                "/subscriptions/${env.ARM_SUBSCRIPTION_ID}/resourceGroups/vm/providers/Microsoft.KeyVault/vaults/keyvault999AG/objectId/${env.ARM_OBJECT_ID}\" || true
+        """
             }
         }
         stage('Terraform Plan') {
