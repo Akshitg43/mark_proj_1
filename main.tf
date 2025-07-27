@@ -64,7 +64,7 @@ module "key_vault" {
   soft_delete_retention_days = var.soft_delete_retention_days
   purge_protection_enabled = var.purge_protection_enabled
   sku_name = var.sku_name
-
+  access_policy_object_id    = var.object_id
 }
 
 module "store_vm_secret" {
@@ -75,7 +75,7 @@ module "store_vm_secret" {
   depends_on = [ azurerm_key_vault_access_policy.terraform_sp ]
 }
 
-resource "azurerm_key_vault_access_policy" "terraform_sp" {
+/*resource "azurerm_key_vault_access_policy" "terraform_sp" {
   key_vault_id = module.key_vault.key_vault_id
   tenant_id = var.tenant_id
   object_id = var.object_id 
@@ -86,7 +86,7 @@ resource "azurerm_key_vault_access_policy" "terraform_sp" {
   ]
   
   }
-
+*/
 module "pip" {
   source = "./modules/public_ip"
   public_ip_name = var.public_ip_name
