@@ -23,7 +23,7 @@ pipeline {
                 sh '''
                   
 
-                    terraform init 
+                    terraform init -lock=false
                       
                 '''
             }
