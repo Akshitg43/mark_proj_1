@@ -32,7 +32,7 @@ pipeline {
                 sh '''
                     
 
-                    terraform plan -input=false  -var="tenant_id=${ARM_TENANT_ID}" -var="vm_password=${VM_PASSWORD}" -var="vm_username=${VM_USERNAME}"
+                    terraform plan -input=false  -var="tenant_id=$ARM_TENANT_ID" -var="admin_password=$VM_PASSWORD" -var="admin_username=$VM_USERNAME"
 
                 '''
             }
@@ -42,7 +42,7 @@ pipeline {
                 sh '''
                 
 
-                    terraform apply -auto-approve -var="tenant_id=${ARM_TENANT_ID}" -var="vm_password=${VM_PASSWORD}" -var="vm_username=${VM_USERNAME}"
+                    terraform apply -auto-approve -var="tenant_id=$ARM_TENANT_ID" -var="admin_password=$VM_PASSWORD" -var="admin_username=$VM_USERNAME"
                     
                 '''
             }
