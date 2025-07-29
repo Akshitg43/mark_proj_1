@@ -93,25 +93,33 @@ pipeline {
         }
     }
 
-    stage('deploy to vm') {
-        steps {
-            script {
-                def vm_ip = sh(script: "terraform output -raw vm_public_ip", returnStdout: true).trim()
+    stage('Deploy to VM') {
+    steps {
+        script {
+            def vm_ip = sh(script: "terraform output -raw vm_public_ip", returnStdout: true).trim()
+            echo "Deploying to VM at: ${vm_ip}"
 
-                sh """
-                sshpass -p '$VM_PASSWORD' ssh -o STRICTHOSTKEYCHECKING=no $VM_USERNAME@${vm_ip} '
-                sudo apt-get update -y &&
-                sudo apt-get insatell -y openjdk-21-jre '
+            // Install Java on VM
+            sh """
+              sshpass -p '${VM_PASSWORD}' ssh -o StrictHostKeyChecking=no ${VM_USERNAME}@${vm_ip} \\
+              'sudo apt-get update -y && sudo apt-get install -y openjdk-21-jre'
+            """
 
-                 sshpass -p '$VM_PASSWORD' scp -o StrictHostKeyChecking=no \
-                    java-app/target/*.jar $VM_USERNAME@${vm_ip}:/home/$VM_USERNAME/
+            // Copy JAR file
+            sh """
+              sshpass -p '${VM_PASSWORD}' scp -o StrictHostKeyChecking=no \\
+              java-app/target/*.jar ${VM_USERNAME}@${vm_ip}:/home/${VM_USERNAME}/
+            """
 
-                sshpass -p '$VM_PASSWORD' ssh -o StrictHostKeyChecking=no $VM_USERNAME@${vm_ip} '
-                  nohup java -jar /home/$VM_USERNAME/*.jar > app.log 2>&1 &
-                """
-            }
+            // Run the app in background
+            sh """
+              sshpass -p '${VM_PASSWORD}' ssh -o StrictHostKeyChecking=no ${VM_USERNAME}@${vm_ip} \\
+              'nohup java -jar /home/${VM_USERNAME}/*.jar > app.log 2>&1 &'
+            """
         }
-    }   
+    }
+}
+ 
 }
 }
 
