@@ -99,7 +99,7 @@ pipeline {
                 def vm_ip = sh(script: "terraform output -raw vm_public_ip", returnStdout: true).trim()
 
                 sh """
-                sshpass -p '$VMPASSWORD' ssh -o STRICTHOSTKEYCHECKING=no $VM_USERNAME@${vm_ip} '
+                sshpass -p '$VM_PASSWORD' ssh -o STRICTHOSTKEYCHECKING=no $VM_USERNAME@${vm_ip} '
                 sudo apt-get update -y &&
                 sudo apt-get insatell -y openjdk-21-jre '
 
