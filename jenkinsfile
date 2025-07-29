@@ -69,10 +69,13 @@ pipeline {
             }
         }
         stage('Build Java App with Maven') {
-            dir('java-app') {
-                dir('java-app')
+            steps{
+                 
+                dir('java-app') {
                 sh 'mvn vlean package'
             }
         }
     }   
+}
+}
 }
