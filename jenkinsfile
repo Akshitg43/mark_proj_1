@@ -30,15 +30,7 @@ pipeline {
             }
         }
 
-           stage('Terraform Import Secret') {
-      steps {
-        sh '''
-          terraform import -input=false \
-          module.store_vm_secret.azurerm_key_vault_secret.secret \
-          https://keyvault999ag.vault.azure.net/secrets/vmpassword 
-        '''
-      }
-    }
+  
         
       
 
@@ -79,10 +71,10 @@ pipeline {
             }
         }
         stage('Build Java App with Maven') {
-            steps{
+            steps {
                  
                 dir('java-app') {
-                sh 'mvn vlean package'
+                sh 'mvn clean package'
             }
         }
     }   
